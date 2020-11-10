@@ -1,0 +1,12 @@
+<!-- tells our home template to extend the base.html template  -->
+<!-- Eleventy automatically looks for includes like these templates from the _includes directory -->
+
+
+{% extends "layouts/base.html" %} 
+
+{% block content %}
+<article>
+  <h1>{{ title }}</h1>
+  {{ content | safe }}
+</article>
+{% endblock %}
