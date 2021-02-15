@@ -2,9 +2,16 @@
 // markdown files, data files and HTML files should be processed by Nunjucks
 // That means that we can now use .html files instead of having to use .njk files.
 // .addPassthroughCopy that's how we get the images to the dist folder
+// Filters
+const dateFilter = require('./src/filters/date-filter.js');
+const w3DateFilter = require('./src/filters/w3-date-filter.js');
 
 
 module.exports = config => {
+  //Add filters
+  config.addFilter('dateFilter', dateFilter);
+  config.addFilter('w3DateFilter', w3DateFilter);
+
   config.addPassthroughCopy('./src/images/');
   // Returns work items, sorted by display order
   const sortByDisplayOrder = require('./src/utils/sort-by-display-order.js');
